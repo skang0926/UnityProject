@@ -19,12 +19,10 @@ public class Managers : MonoBehaviour
 	#region Core
 	DataManager dataManager = new DataManager();
 	ResourceManager resourceManager = new ResourceManager();
-	SceneManager sceneManager = new SceneManager();
 	SoundManager soundManager = new SoundManager();
 	UIManager uiManager = new UIManager();
 	public static DataManager Data { get { return Instance?.dataManager; } }
 	public static ResourceManager Resource { get { return Instance?.resourceManager; } }
-	public static SceneManager Scene { get { return Instance?.sceneManager; } }
 	public static SoundManager Sound { get { return Instance?.soundManager; } }
 	public static UIManager UI { get { return Instance?.uiManager; } }
 	#endregion
