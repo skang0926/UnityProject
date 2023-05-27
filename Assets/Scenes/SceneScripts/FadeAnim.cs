@@ -9,17 +9,18 @@ public class FadeAnim : MonoBehaviour
     public TextMeshProUGUI textDisplay; // 첫번째 텍스트
     public TextMeshProUGUI textDisplay2; // 두번째 텍스트
     public TextMeshProUGUI textDisplay3;
+
     float time = 0;
     public float fadeTime = 4f;
      void Start()
     {
         Debug.Log("시작");
-        StartCoroutine(Fadetextanim());
+        StartCoroutine(FadeTextAnim());
 
     }
 
  
-    IEnumerator Fadetextanim()
+    IEnumerator FadeTextAnim()
     {
         while (time < fadeTime)
         {
@@ -31,7 +32,7 @@ public class FadeAnim : MonoBehaviour
                 Debug.Log("첫번째");
                 time = 0;
                 textDisplay.gameObject.SetActive(false);
-                StartCoroutine(Secondtextanim());
+                StartCoroutine(SecondTextAnim());
             }
 
             yield return null;
@@ -43,7 +44,7 @@ public class FadeAnim : MonoBehaviour
 
 
     }
-    IEnumerator Secondtextanim()
+    IEnumerator SecondTextAnim()
     {
         textDisplay2.gameObject.SetActive(true);
         while (time < fadeTime)
@@ -55,7 +56,7 @@ public class FadeAnim : MonoBehaviour
             {
                 time = 0;
                 textDisplay2.gameObject.SetActive(false);
-                StartCoroutine(Thirdtextanim());
+                StartCoroutine(ThirdTextAnim());
 
             }
             yield return null;
@@ -65,7 +66,7 @@ public class FadeAnim : MonoBehaviour
        
        
     }
-    IEnumerator Thirdtextanim()
+    IEnumerator ThirdTextAnim()
     {
         textDisplay3.gameObject.SetActive(true);
         while (true)
