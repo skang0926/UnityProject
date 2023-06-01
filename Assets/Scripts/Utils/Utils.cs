@@ -51,32 +51,37 @@ public class Utils
 		return null;
 	}
 
-	public static CreatureType IntToCreatureType(int num)
+	struct Shell<T>
     {
-		CreatureType ct;
-
-		switch(num)
-        {
-			case 0:
-				ct = CreatureType.Goblin;
-				break;
-			case 1:
-				ct = CreatureType.Slime;
-				break;
-			case 2:
-				ct = CreatureType.Snake;
-				break;
-			default:
-				ct = CreatureType.None;
-				break;
-        }
-
-		return ct;
+		public int intValue;
+		public T Enum;
     }
 
-	public static int CreatureTypeToInt(CreatureType ct)
+    public static int EnumToInt<T>(T enumType) where T : struct
     {
-		return (int)ct;
+		Shell<T> s;
+
+		s.Enum = enumType;
+
+        unsafe
+        {
+			int* pi = &s.intValue;
+			pi += 1;
+			return *pi;
+        }
+    }
+
+	public static T IntToEnum<T>(int value) where T : struct
+    {
+		var s = new Shell<T>();
+        unsafe
+        {
+			int* pi = &s.intValue;
+			pi += 1;
+			*pi = value;
+        }
+
+		return s.Enum;
     }
 }
 

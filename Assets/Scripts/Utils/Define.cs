@@ -31,4 +31,10 @@ public static class Define
 		Snake,
 		None
 	}
+
+	public enum SkillType
+	{
+		TestSkill1,
+		TestSkill2
+	}
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Utils;
-
+using static Define;
 
 //TEMP Script
 public class CreatureSpawner : MonoBehaviour
@@ -33,7 +33,7 @@ public class CreatureSpawner : MonoBehaviour
 			return;
 
 		// TEMP
-		MonsterController mc = Managers.Object.Spawn<MonsterController>(IntToCreatureType(Random.Range(1, 3)));
+		MonsterController mc = Managers.Object.Spawn<MonsterController>(IntToEnum<CreatureType>(Random.Range(1, 3)));
 		float spawnPos = Managers.Object.Player.transform.position.x + Random.Range(-10, 10);
 		mc.transform.position = new Vector2(spawnPos, 0);
 	}
