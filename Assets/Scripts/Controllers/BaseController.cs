@@ -11,15 +11,10 @@ public class BaseController : MonoBehaviour
     {
         Init();
     }
-
-    bool init = false;
-    public virtual bool Init()
+  
+    public virtual void Init()
     {
-        if (init)
-            return false;
 
-        init = true;
-        return true;
     }
 
     // Update is called once per frame

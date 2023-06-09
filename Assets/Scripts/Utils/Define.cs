@@ -17,7 +17,8 @@ public static class Define
 		Effect,
 	}
 
-	public enum ObjectType
+    #region Contents
+    public enum ObjectType
 	{
 		Player,
 		Monster,
@@ -26,15 +27,10 @@ public static class Define
 
 	public enum CreatureType
     {
-		Goblin,
+		Knight,
 		Slime,
 		Snake,
 		None
 	}
-
-	public enum SkillType
-	{
-		TestSkill1,
-		TestSkill2
-	}
+	#endregion
 }

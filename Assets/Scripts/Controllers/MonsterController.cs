@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+using static Define;
 public class MonsterController : CreatureController
 {
-	public override bool Init()
+	protected float speed = 1.0f;
+	public int hp = 100;
+	public int maxHp = 100;
+
+
+    void Start()
+    {
+        
+    }
+
+    public override void Init()
 	{
-		if (base.Init())
-			return false;
-
-		// TODO
-		ObjectType = Define.ObjectType.Monster;
-
-		return true;
+		hp = maxHp;
 	}
 
 	//TEMP
@@ -62,6 +67,16 @@ public class MonsterController : CreatureController
 			target.TakeDamage(this, 2);
 
 			yield return new WaitForSeconds(0.1f);
+		}
+	}
+
+	public override void TakeDamage(BaseController attacker, int damage)
+	{
+		hp -= damage;
+		if (hp <= 0)
+		{
+			hp = 0;
+			OnDead();
 		}
 	}
 

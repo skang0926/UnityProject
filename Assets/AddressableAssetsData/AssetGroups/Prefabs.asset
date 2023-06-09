@@ -32,6 +32,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs
+  - m_GUID: 545a6e65d2f49214891bb6deed73bb4a
+    m_Address: Knight_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+  - m_GUID: 8fca27612f718f141b1923b9df5e96a3
+    m_Address: BasicAtk.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+  - m_GUID: 51ec4de16d505bc4d94ecfa63d629d01
+    m_Address: TestSkill.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2fd2f20e0a9dbb2428394464c615254b, type: 2}
   m_SchemaSet:

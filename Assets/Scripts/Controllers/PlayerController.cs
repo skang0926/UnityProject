@@ -2,11 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static Define;
+
 public class PlayerController : CreatureController
 {
+
+    //TEMP
     Vector2 moveDir = Vector2.zero;
+    public UnityEditor.U2D.Animation.CharacterData data;
 
     float speed = 5.0f;
+
+    public Data.CharacterData stat;
+
+    public SkillSystem skillSystem;
+
+    public override void Init()
+    {
+        if (Managers.Data.CharacterDic.ContainsKey(0) == true)
+        {
+            var characterData = Managers.Data.CharacterDic.GetValueOrDefault(0);
+
+            Debug.Log(characterData.atk);
+
+            stat = characterData.DeepCopy();
+
+            Debug.Log(stat.atk);
+            skillSystem = Utils.GetOrAddComponent<SkillSystem>(gameObject);
+
+            if (skillSystem)
+            {
+                foreach (var skill in stat.skills)
+                {
+                    skillSystem.RegisterSkill(skill);
+                }
+            }
+        }
+
+        skillSystem.SetCurrentSkill(SkillType.BasicAtk);
+
+    }
+
 
     public Vector2 MoveDir
     {
@@ -17,7 +53,6 @@ public class PlayerController : CreatureController
     void Start()
     {
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
-
     }
     void OnDestroy()
     {
@@ -47,15 +82,12 @@ public class PlayerController : CreatureController
         Vector2 touchPos = Input.GetTouch(0).position;
 
         if (xScreenHalfSize <= touchPos.x)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-
+        {      
             moveDir = new Vector2(1, 0);
         }
         else
         {
-            moveDir = new Vector2(-1, 0);
-            GetComponent<SpriteRenderer>().flipX = false;
+            skillSystem.UseCurrentSkill();
         }
 
         Vector3 dir = moveDir * speed * Time.deltaTime;
@@ -68,7 +100,6 @@ public class PlayerController : CreatureController
         if (target == null)
             return;
 
-        //TEMP
         target.TakeDamage(this, 10000);
     }
 
@@ -76,6 +107,8 @@ public class PlayerController : CreatureController
     {
         base.TakeDamage(attacker, damage);
 
-        Debug.Log($"TakeDamage !{ hp }");
+//        animator.SetInteger("Hp", hp);
+
+//        Debug.Log($"TakeDamage !{ hp }");
     }
 }

@@ -33,19 +33,23 @@ public class GameScene : MonoBehaviour
 		//TEMP
 		spawner = gameObject.AddComponent<CreatureSpawner>();
 
-		var player = Managers.Object.Spawn<PlayerController>(CreatureType.Goblin);
-
-		Camera.main.GetComponent<CameraController>().Target = player.gameObject;
-
 		// Data Test
 		Managers.Data.Init();
 
-		foreach (var playerData in Managers.Data.PlayerDic.Values)
-		{
-			Debug.Log($"Lvl : {playerData.level}, Hp{playerData.maxHp}");
-		}
+		var player = Managers.Object.Spawn<PlayerController>(CreatureType.Knight);
 
-	}
+		Camera.main.GetComponent<CameraController>().Target = player.gameObject;
+
+
+        foreach (var playerData in Managers.Data.CharacterDic.Values)
+        {
+            foreach (var skill in playerData.skills)
+            {
+                Debug.Log($"Skill : {skill}");
+            }
+        }
+
+    }
 
 	void Update()
 	{

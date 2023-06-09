@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CharacterDatas>
+  <CharacterData id ="0">
+    <level>2</level>
+    <grade>Transcendence</grade>
+    <martialArt>HandMartialArt</martialArt>
+    <maxHp>100</maxHp>
+    <hp>100</hp>
+    <atk>100</atk>
+    <atkSpeed>1</atkSpeed>
+    <def>1</def>
+    <critRatio>1.0</critRatio>
+    <critDamageRatio>1.0</critDamageRatio>
+    <decCoolTime>5.0</decCoolTime>
+    <skills>
+      <skill>BasicAtk</skill>
+      <skill>TestSkill</skill>
+    </skills>
+  </CharacterData>
+  <CharacterData id ="1">
+    <level>2</level>
+    <grade>WellKnown</grade>
+    <martialArt>Swordsmanship</martialArt>
+    <maxHp>100</maxHp>
+    <hp>100</hp>
+    <atk>100</atk>
+    <atkSpeed>1</atkSpeed>
+    <def>1</def>
+    <critRatio>1.0</critRatio>
+    <critDamageRatio>1.0</critDamageRatio>
+    <decCoolTime>5.0</decCoolTime>
+    <skills>
+      <skill>BasicAtk</skill>
+    </skills>
+  </CharacterData>
+</CharacterDatas>

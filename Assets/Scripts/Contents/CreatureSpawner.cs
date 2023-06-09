@@ -28,13 +28,13 @@ public class CreatureSpawner : MonoBehaviour
 
 	void TrySpawn()
 	{
-		int monsterCount = Managers.Object.Monsters.Count;
-		if (monsterCount >= maxMonsterCount)
-			return;
+        int monsterCount = Managers.Object.Monsters.Count;
+        if (monsterCount >= maxMonsterCount)
+            return;
 
-		// TEMP
-		MonsterController mc = Managers.Object.Spawn<MonsterController>(IntToEnum<CreatureType>(Random.Range(1, 3)));
-		float spawnPos = Managers.Object.Player.transform.position.x + Random.Range(-10, 10);
-		mc.transform.position = new Vector2(spawnPos, 0);
-	}
+        // TEMP
+        MonsterController mc = Managers.Object.Spawn<MonsterController>(IntToEnum<CreatureType>(Random.Range(1, 3)));
+        float spawnPos = Managers.Object.Player.transform.position.x + Random.Range(10, 20);
+        mc.transform.position = new Vector2(spawnPos, 0);
+    }
 }

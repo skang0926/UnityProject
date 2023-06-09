@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 58f3f2c7698f779488986a66357a3797
   m_SerializeEntries:
   - m_GUID: dae8303c01b4a404fbcdca1bd5dfae85
-    m_Address: PlayerData.xml
+    m_Address: CharacterData.xml
     m_ReadOnly: 0
     m_SerializedLabels:
     - Data

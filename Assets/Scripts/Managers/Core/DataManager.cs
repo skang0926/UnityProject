@@ -12,15 +12,16 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-	public Dictionary<int, Data.PlayerData> PlayerDic { get; private set; } = new Dictionary<int, Data.PlayerData>();
+	public Dictionary<int, Data.CharacterData> CharacterDic { get; private set; } = new Dictionary<int, Data.CharacterData>();
 
 	public void Init()
 	{
 		//PlayerDic = LoadJson<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.json").MakeDict();
-		PlayerDic = LoadXml<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.xml").MakeDict();
+		CharacterDic = LoadXml<Data.CharacterDataLoader, int, Data.CharacterData>("CharacterData.xml").MakeDict();
 	}
 
-	Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
+    #region Generic
+    Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
 	{
 		TextAsset textAsset = Managers.Resource.Load<TextAsset>($"{path}");
 		return JsonUtility.FromJson<Loader>(textAsset.text);
@@ -41,4 +42,5 @@ public class DataManager
 		using (MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(textAsset.text)))
 			return (Loader)xs.Deserialize(stream);
 	}
+	#endregion
 }

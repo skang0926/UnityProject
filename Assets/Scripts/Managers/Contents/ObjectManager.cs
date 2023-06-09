@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 using static Define;
@@ -19,9 +20,9 @@ public class ObjectManager
 
 		switch (creatureType)
 		{
-			case CreatureType.Goblin:
+			case CreatureType.Knight:
 		
-				go = Managers.Resource.Instantiate("Goblin_01.prefab", pooling: true);
+				go = Managers.Resource.Instantiate("Knight_01.prefab", pooling: true);
 				go.name = "Player";
 
 				PlayerController pc = go.GetOrAddComponent<PlayerController>();
